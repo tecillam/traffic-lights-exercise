@@ -1,6 +1,5 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import { TrafficLightComponent } from './app/traffic-light/traffic-light.component';
 
-bootstrapApplication(AppComponent, appConfig)
+bootstrapApplication(TrafficLightComponent)
   .catch((err) => console.error(err));
