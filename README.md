@@ -1,6 +1,13 @@
 # TrafficLight
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
+This Project simulates cars moving on a road with trafficlights following some rules:
+
+- Cars move forward unless a red or orange traffic light stops them.
+- Traffic lights change state according to a timer cycle.
+- Cars leave the road when they go beyond the last position.
+- Implemented using a service to separate logic from presentation (Single Responsibility Principle).
+
 
 ## Development server
 
@@ -25,3 +32,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## How to install
+Clone the repository
+- git clone https://github.com/tecillam/traffic-lights-exercise.git
+
+Install dependencies
+- npm install
+
+Run
+- ng serve 
