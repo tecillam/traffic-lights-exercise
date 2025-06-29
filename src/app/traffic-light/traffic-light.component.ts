@@ -21,8 +21,7 @@ export class TrafficLightComponent {
     const startingRoad = 'CCC.G.C.R...';
     const iterations = 16;
 
-    this.roadStates = this.trafficLigtService.simulateroadTraffic(startingRoad, iterations);
-    console.log(this.roadStates)
+    this.roadStates = this.trafficLigtService.simulateRoadTraffic(startingRoad, iterations);
   }
 
 }

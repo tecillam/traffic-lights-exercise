@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 
-interface TrafficLight {
+export interface TrafficLight {
   position: number;
   state: 'G' | 'O' | 'R';
   timer: number;
 }
 
-interface Car {
+export interface Car {
   position: number;
 }
 
@@ -15,7 +15,14 @@ interface Car {
 })
 export class TrafficLightService {
 
-  simulateroadTraffic(road: string, n: number): string[] {
+  simulateRoadTraffic(road: string, n: number): string[] {
+    if (!road || road.length === 0) {
+      throw new Error('Road cannot be empty');
+    }
+
+    if (n < 0) {
+      throw new Error('Iterations cannot be negative');
+    }
     const outputArray: string[] = [];
     const { cars, trafficLigts, roadLength } = this.parseInitialRoad(road);
 
@@ -58,6 +65,9 @@ export class TrafficLightService {
           state: char,
           timer: 0
         })
+      }
+      if (char !== 'G' && char !== 'O' && char !== 'R' && char !== 'C' && char !== '.') {
+        throw new Error('Invalid character in road string');
       }
     }
 
@@ -136,10 +146,16 @@ export class TrafficLightService {
     const newRoadArray = new Array(roadLength).fill('.');
 
     lights.forEach(light => {
+      if (light.position > roadLength) {
+        throw new Error('Traffic light out of road range')
+      }
       newRoadArray[light.position] = light.state;
     });
 
     cars.forEach(car => {
+      if (car.position > roadLength) {
+        throw new Error('Car out of road range')
+      }
       newRoadArray[car.position] = 'C';
     });
 
