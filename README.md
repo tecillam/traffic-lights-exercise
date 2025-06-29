@@ -38,6 +38,7 @@ Clone the repository
 - git clone https://github.com/tecillam/traffic-lights-exercise.git
 
 Install dependencies
+- move to the working directory where proyect was copy
 - npm install
 
 Run
